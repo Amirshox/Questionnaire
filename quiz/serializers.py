@@ -54,7 +54,8 @@ class AnswerSerializer(serializers.ModelSerializer):
         model = Answer
         fields = [
             'id',
+            'user',
             'question',
-            'option',
+            'options',
             'text_answer',
         ]

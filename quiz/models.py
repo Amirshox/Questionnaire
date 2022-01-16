@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework.exceptions import MethodNotAllowed
 
 
 class BaseModel(models.Model):
@@ -13,8 +14,8 @@ class Poll(BaseModel):
     author = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='polls')
 
     title = models.CharField(max_length=255)
-    start_date = models.DateTimeField()
-    end_date = models.DateTimeField()
+    start_date = models.DateTimeField(blank=True, null=True)
+    end_date = models.DateTimeField(blank=True, null=True)
     description = models.TextField()
 
     is_active = models.BooleanField(default=True)
@@ -45,6 +46,13 @@ class Question(BaseModel):
 
     class Meta:
         ordering = ('created_date',)
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        if self.poll.start_date:
+            raise MethodNotAllowed(method=('post', 'put', 'patch'),
+                                   detail="После создания поле 'дата старта' у опроса менять нельзя - "
+                                          "добавление/изменение/удаление вопросов в опросе. ")
+        super().save(force_insert, force_update, using, update_fields)
 
 
 class Option(BaseModel):

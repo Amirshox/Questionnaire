@@ -1,5 +1,8 @@
+from uuid import uuid1
+
 from rest_framework import viewsets
 
+from users.models import User
 from .models import Poll, Question, Option, Answer
 from .serializers import PollSerializer, QuestionSerializer, OptionSerializer, AnswerSerializer, PollDetailSerializer
 
@@ -27,3 +30,10 @@ class OptionViewSet(viewsets.ModelViewSet):
 class AnswerViewSet(viewsets.ModelViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+
+    def create(self, request, *args, **kwargs):
+        if not request.data.get('user'):
+            username = str(uuid1())
+            user = User.objects.create(username=username)
+            request.data['user'] = user.id
+        return super().create(request, *args, **kwargs)
