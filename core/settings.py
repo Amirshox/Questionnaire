@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     # third-party
     'rest_framework',
     'rest_framework.authtoken',
-    'drf_yasg',
 
     # custom apps
     'quiz',

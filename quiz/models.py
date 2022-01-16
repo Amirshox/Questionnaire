@@ -17,6 +17,8 @@ class Poll(BaseModel):
     end_date = models.DateTimeField()
     description = models.TextField()
 
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return self.title
 
@@ -36,10 +38,10 @@ class Question(BaseModel):
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name='questions')
 
     text = models.TextField()
-    type = models.CharField(max_length=8, choices=TYPE_OF_QUESTION)
+    type_answer = models.CharField(max_length=8, choices=TYPE_OF_QUESTION)
 
     def __str__(self):
-        return self.poll
+        return f'{self.poll.title} -> {self.id} -> {self.type_answer}'
 
     class Meta:
         ordering = ('created_date',)
@@ -52,7 +54,7 @@ class Option(BaseModel):
     is_correct = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.questions_id
+        return str(self.questions_id)
 
     class Meta:
         ordering = ('created_date',)
@@ -62,12 +64,12 @@ class Answer(BaseModel):
     user = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='answers')
 
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
-    options = models.ManyToManyField(Option, related_name='answers', default=None)
+    options = models.ManyToManyField(Option, related_name='answers', default=None, blank=True)
 
     text_answer = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return self.users.username
+        return self.user.username
 
     class Meta:
         ordering = ('created_date',)

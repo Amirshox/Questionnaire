@@ -17,4 +17,4 @@ class User(AbstractUser):
         ordering = ['-id']
 
     def __str__(self):
-        return str(self.id)
+        return self.username
