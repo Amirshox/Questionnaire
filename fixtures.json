@@ -1,0 +1,228 @@
+[
+  {
+    "model": "quiz.question",
+    "pk": 1,
+    "fields": {
+      "created_date": "2022-01-16T12:48:36.101Z",
+      "modified_date": "2022-01-16T12:48:36.101Z",
+      "poll": 1,
+      "text": "Question 1",
+      "type_answer": "TEXT"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 2,
+    "fields": {
+      "created_date": "2022-01-16T12:48:46.986Z",
+      "modified_date": "2022-01-16T12:48:46.987Z",
+      "poll": 1,
+      "text": "Question 2",
+      "type_answer": "SINGLE"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 3,
+    "fields": {
+      "created_date": "2022-01-16T12:48:56.202Z",
+      "modified_date": "2022-01-16T12:48:56.202Z",
+      "poll": 1,
+      "text": "Question 3",
+      "type_answer": "MULTIPLE"
+    }
+  },
+  {
+    "model": "quiz.option",
+    "pk": 1,
+    "fields": {
+      "created_date": "2022-01-16T12:54:36.153Z",
+      "modified_date": "2022-01-16T12:54:36.153Z",
+      "question": 2,
+      "text": "Option 2",
+      "is_correct": true
+    }
+  },
+  {
+    "model": "quiz.option",
+    "pk": 2,
+    "fields": {
+      "created_date": "2022-01-16T12:54:46.142Z",
+      "modified_date": "2022-01-16T12:54:46.142Z",
+      "question": 2,
+      "text": "Option 3",
+      "is_correct": false
+    }
+  },
+  {
+    "model": "quiz.option",
+    "pk": 3,
+    "fields": {
+      "created_date": "2022-01-16T12:54:54.276Z",
+      "modified_date": "2022-01-16T12:54:54.276Z",
+      "question": 2,
+      "text": "Option 1",
+      "is_correct": false
+    }
+  },
+  {
+    "model": "quiz.option",
+    "pk": 4,
+    "fields": {
+      "created_date": "2022-01-16T12:55:01.249Z",
+      "modified_date": "2022-01-16T12:55:01.249Z",
+      "question": 3,
+      "text": "Option 1",
+      "is_correct": true
+    }
+  },
+  {
+    "model": "quiz.option",
+    "pk": 5,
+    "fields": {
+      "created_date": "2022-01-16T12:55:10.492Z",
+      "modified_date": "2022-01-16T12:55:10.492Z",
+      "question": 3,
+      "text": "Option 2",
+      "is_correct": true
+    }
+  },
+  {
+    "model": "quiz.option",
+    "pk": 6,
+    "fields": {
+      "created_date": "2022-01-16T12:55:16.237Z",
+      "modified_date": "2022-01-16T12:55:16.237Z",
+      "question": 3,
+      "text": "Option 3",
+      "is_correct": false
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$150000$itDhEGWyZBgS$6cwy0gtp+JxIr8qILasgL9a3FFMMBCJ6kDUh09dl9mM=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-01-16T12:46:47.383Z",
+      "rating": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-01-16T12:47:34.367Z",
+      "rating": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "c929cdf0-76cb-11ec-b0ca-c1af508b547f",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-01-16T12:56:56.704Z",
+      "rating": 0,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "quiz.answer",
+    "pk": 1,
+    "fields": {
+      "created_date": "2022-01-16T12:55:52.481Z",
+      "modified_date": "2022-01-16T12:55:52.481Z",
+      "user": 2,
+      "question": 1,
+      "text_answer": "TEST answert",
+      "options": []
+    }
+  },
+  {
+    "model": "quiz.answer",
+    "pk": 2,
+    "fields": {
+      "created_date": "2022-01-16T12:56:32.350Z",
+      "modified_date": "2022-01-16T12:56:32.350Z",
+      "user": 2,
+      "question": 2,
+      "text_answer": null,
+      "options": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "quiz.answer",
+    "pk": 3,
+    "fields": {
+      "created_date": "2022-01-16T12:56:46.028Z",
+      "modified_date": "2022-01-16T12:56:46.028Z",
+      "user": 2,
+      "question": 3,
+      "text_answer": null,
+      "options": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "quiz.answer",
+    "pk": 4,
+    "fields": {
+      "created_date": "2022-01-16T12:56:56.941Z",
+      "modified_date": "2022-01-16T12:56:56.941Z",
+      "user": 3,
+      "question": 3,
+      "text_answer": null,
+      "options": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "quiz.poll",
+    "pk": 1,
+    "fields": {
+      "created_date": "2022-01-16T12:48:08.037Z",
+      "modified_date": "2022-01-16T12:48:08.037Z",
+      "author": 1,
+      "title": "Poll 1",
+      "start_date": null,
+      "end_date": null,
+      "description": "Test",
+      "is_active": true
+    }
+  }
+]
