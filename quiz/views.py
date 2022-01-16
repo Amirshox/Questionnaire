@@ -1,6 +1,7 @@
 from uuid import uuid1
 
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny
 
 from users.models import User
 from .models import Poll, Question, Option, Answer
@@ -30,6 +31,7 @@ class OptionViewSet(viewsets.ModelViewSet):
 class AnswerViewSet(viewsets.ModelViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+    permission_classes = (AllowAny,)
 
     def create(self, request, *args, **kwargs):
         if not request.data.get('user'):
