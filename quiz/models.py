@@ -56,13 +56,13 @@ class Question(BaseModel):
 
 
 class Option(BaseModel):
-    questions = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='options')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='options')
 
     text = models.CharField(max_length=255)
     is_correct = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.questions_id)
+        return str(self.question_id)
 
     class Meta:
         ordering = ('created_date',)

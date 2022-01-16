@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 from .models import Poll, Question, Option, Answer
 
@@ -8,9 +9,15 @@ class OptionSerializer(serializers.ModelSerializer):
         model = Option
         fields = [
             'id',
-            'questions',
+            'question',
             'text',
         ]
+
+    def create(self, validated_data):
+        question = validated_data.get('question')
+        if question.type_answer == Question.TEXT:
+            raise ValidationError(detail='Question Type "TEXT",  please without Options')
+        return super().create(validated_data)
 
 
 class QuestionSerializer(serializers.ModelSerializer):
